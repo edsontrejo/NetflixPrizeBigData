@@ -1,0 +1,23 @@
+### Algorithm to find rating a particular user is likely to give to a movie
+
+1. Convert dataset into a user movie matrix where each user is represented by a vector denoting movies they have rated and not rated
+2. Feed the user vector to KNN
+3. Knn takes as input a user id and finds the movie matrix of that particular user
+4. It then calculates the cosine similarity between all users movie vectors and that particular user
+5. The users are then arranged in ascending order of cosine similarity, the top user being the most similar to the user in question
+6. Out of naearest neighbours select the users who have rated the movie in question
+7. Take the average rating of the top neighbours who has previously rated the movie
+8. That is the rating.
+
+
+### Pseudocode
+Knn(user_id, user)
+	for user in all_users
+		cosine_similarity(user_id.tovector(), user)
+	return neighbors
+
+1. Pivottable(dataset)
+2. neighborrs = Knn(user_id, movie_id)
+3. select neighbors if movie_id exists 
+4. Average neighbour movie ratings[:5]
+$. Return rating
